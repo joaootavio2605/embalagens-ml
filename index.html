@@ -68,6 +68,8 @@
 
     let bloqueado = false;
 
+    const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbyQ0cAS5Ilt-BIwfMCprioWFawAYVNvjyutO4O7cdPD7fYNupsNVpFHMhl863HvxbK3DA/exec";
+
     function qrLido(texto) {
 
       if (bloqueado) return;
@@ -96,6 +98,11 @@
       }
 
       console.log("QR lido:", texto);
+
+      fetch(URL_SCRIPT + "?id=" + encodeURIComponent(id), {
+  method: "GET",
+  mode: "no-cors"
+});
 
       setTimeout(function() {
 
